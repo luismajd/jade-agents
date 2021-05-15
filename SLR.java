@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SimpleLinearRegression {
+public class SLR {
 
     public static void main(String[] args) {
 

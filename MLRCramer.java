@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MultipleLinearRegression {
+public class MLRCramer {
 
     public static void main(String[] args) {
 
@@ -29,26 +29,28 @@ public class MultipleLinearRegression {
             {1, 77.8, 32.9}            
         };
         */
-        /*
+        
         double Y[] = {251.3, 248.3, 267.5};
         double X[][] = {
             {1, 43.4, 29.3},
             {1, 43.9, 29.5},
             {1, 44.5, 29.7}
         };
-        */
+        
+        /*
         double Y[] = {-3, 13, 8};
         double X[][] = {
             {1, -3, 2},
             {5, 6, -1},
             {4, -1, 3}
         };
+        */
 
-        double results[] = cramer(X, Y);
+        double B[] = cramer(X, Y);
 
-        double B_0 = results[0];
-        double B_1 = results[1];
-        double B_2 = results[2];
+        double B_0 = B[0];
+        double B_1 = B[1];
+        double B_2 = B[2];
 
         double y = B_0 + B_1 * x_1 + B_2 * x_2;
 
