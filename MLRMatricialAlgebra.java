@@ -4,6 +4,9 @@ public class MLR {
 
     public static void main(String[] args) {
 
+        double x_1 = Double.parseDouble(args[0]);
+        double x_2 = Double.parseDouble(args[1]);
+
         double Y[][] = {{251.3}, {251.3}, {248.3}, {267.5}, {273.0}, {276.5}, {270.3}, {274.9}, {285.0}, {290.0}, {297.0}, {302.5}, {304.5}, {309.3}, {321.7}, {330.7}, {349.0}};
         double X[][] = {
             {1, 41.9, 29.1},
@@ -25,10 +28,33 @@ public class MLR {
             {1, 77.8, 32.9}            
         };
 
+        /*
+        double Y[][] = {{250}, {220}, {200}, {350}, {210}, {205}, {285}, {190}};
+        double X[][] = {
+            {1, 76, 80, 13.5},
+            {1, 61, 72, 12.1},
+            {1, 50, 70, 11.6},
+            {1, 94, 122, 12.5},
+            {1, 55, 75, 13.5},
+            {1, 61, 95, 14},
+            {1, 80, 120, 12.5},
+            {1, 52, 68, 14.5}
+        };
+        */
+
         double X_t[][] = transpose(X);
         double B[][] = matrixMultiplication(invertible(matrixMultiplication(X_t, X)),matrixMultiplication(X_t, Y));
 
-        printMatrix(B);
+        double B_0 = B[0][0];
+        double B_1 = B[1][0];
+        double B_2 = B[2][0];
+
+        double y = B_0 + B_1 * x_1 + B_2 * x_2;
+
+        System.out.println("Input x_1: " + x_1);
+        System.out.println("Input x_2: " + x_2);
+        System.out.println("MLR function: y = " + B_0 + " + " + B_1 + "x_1 + " + B_2 + "x_2");
+        System.out.println("Output y: " + y);
     }
 
     private static double[][] transpose(double matrix[][]) {
@@ -78,7 +104,7 @@ public class MLR {
             double inverse = 1/matrix[k][k];
             for(int j=0; j<n; j++) {
                 matrix[k][j] *= inverse;
-                identity_matrix[k][k] *= inverse;
+                identity_matrix[k][j] *= inverse;
             }
 
             for(int i=0; i<n; i++) {

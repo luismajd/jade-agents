@@ -54,8 +54,8 @@ public class SLRAgent extends Agent {
     }
 
     public void calculateSLR() {
-        double X[] = {23, 26, 30, 34, 43, 48, 52, 57, 58};
-        double Y[] = {651, 762, 856, 1063, 1190, 1298, 1421, 1440, 1518};
+        double X[] = {1,2,3,4,5,6,7,8,9};
+        double Y[] = {5,10,15,20,25,30,35,40,45};
 
         int n = X.length;
         double x_summ = summation(X);
