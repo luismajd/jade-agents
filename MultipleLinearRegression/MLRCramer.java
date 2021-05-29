@@ -1,18 +1,25 @@
+package MultipleLinearRegression;
+
 import java.util.*;
 
 public class MLRCramer {
 
-    public static void main(String[] args) {
+    private double x_1;
+    private double x_2;
+    private double Y[] = {251.3, 248.3, 267.5};
+    private double X[][] = {
+        {1, 43.4, 29.3},
+        {1, 43.9, 29.5},
+        {1, 44.5, 29.7}
+    };
 
-        double x_1 = Double.parseDouble(args[0]);
-        double x_2 = Double.parseDouble(args[1]);
+    public MLRCramer(double x_1, double x_2) {
+
+        //double x_1 = Double.parseDouble(args[0]);
+        //double x_2 = Double.parseDouble(args[1]);
         
-        double Y[] = {251.3, 248.3, 267.5};
-        double X[][] = {
-            {1, 43.4, 29.3},
-            {1, 43.9, 29.5},
-            {1, 44.5, 29.7}
-        };
+        this.x_1 = x_1;
+        this.x_2 = x_2;
 
         double B[] = cramer(X, Y);
 
