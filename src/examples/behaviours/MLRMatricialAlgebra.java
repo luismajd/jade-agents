@@ -1,4 +1,4 @@
-package MultipleLinearRegression;
+package examples.behaviours;
 
 import java.util.*;
 
