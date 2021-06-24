@@ -1,9 +1,14 @@
 import java.util.*;
 import java.lang.Math;
 
-public class LogicalRegression {
+public class LogisticRegression {
     
     public static void main(String[] args) {
+
+        //System.out.println(args.length);
+        String inputs[] = args[0].split(",");
+        //System.out.println(inputs.length);
+
         double X[][] = {
             {1, 1, 1},
             {1, 4, 2},
@@ -18,12 +23,24 @@ public class LogicalRegression {
         double p;
         Boolean Y_new;
 
-        X_new = new double[]{1, 3.5, 4};
         W = gradientDescent(X,Y,a,M);
+
+        X_new = getX_new(inputs);
         p = f(X_new, W);
         Y_new = getBooleanResult(p);
 
         System.out.println("p: " + p + "; Y: " + Y_new);
+    }
+
+    private static double[] getX_new(String inputs[]) {
+        int n = inputs.length;
+        double X_new[] = new double[n];
+
+        for(int i=0; i<n; i++) {
+            X_new[i] = Double.parseDouble(inputs[i]);
+        }
+
+        return X_new;
     }
     
     private static double[] gradientDescent(double X[][], double Y[], double a, int M) {
